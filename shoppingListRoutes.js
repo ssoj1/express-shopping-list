@@ -58,6 +58,11 @@ router.get("/:name", function (req, res) {
     return res.json(item);
 });
 
+/**
+ * PATCH /items/:name : accept JSON body, modify item, return it:
+ *  {updated: {name: "new popsicle", price: 2.45}}
+ */
+
 router.patch("/:name", function (req, res) {
     let reqName = req.params.name;
     let newName = req.body.name;
@@ -71,6 +76,11 @@ router.patch("/:name", function (req, res) {
     return res.json({ updated: item });
 
 })
+
+/**
+ * DELETE /items/:name : delete item, returns message:
+ *  {message: "Deleted"}
+ */
 
 router.delete("/:name", function (req, res) {
     let reqName = req.params.name;
