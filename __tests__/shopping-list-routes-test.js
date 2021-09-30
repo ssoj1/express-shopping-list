@@ -76,7 +76,7 @@ describe("POST items to database", function () {
             });
         expect(resp.body).toEqual(
             {
-                "added": {
+                "added": { // don't need to have strings around the keys as it's JS object
                     "name": "strawberries",
                     "price": 4.99
                 }

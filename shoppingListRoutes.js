@@ -5,6 +5,10 @@ const router = new express.Router();
 
 const { NotFoundError } = require("./expressError");
 
+// not bad to have here since they're small/short
+// may consider moving them to a util.js file
+
+// could be replaced with built in Array.find()
 /** Find an item by name */
 function getItem(name) {
 
@@ -15,7 +19,8 @@ function getItem(name) {
     }
     throw new NotFoundError();
 }
-
+// need docstring
+// could be replaced with built in Arrayy.findIndex()
 function itemIndex(name) {
 
     for (let i = 0; i < db.items.length; i++) {
@@ -39,8 +44,8 @@ router.get("/", function (req, res) {
  *   {added: {name: "name", price: #}}
 */
 router.post("/", function (req, res) {
-    let name = req.body.name;
-    let price = req.body.price;
+    let name = req.body.name; // object destructuring would be better
+    let price = req.body.price; // be more consistent with let/const use; const should be for non-changing values
 
     db.items.push({ name, price });
 
@@ -64,7 +69,7 @@ router.get("/:name", function (req, res) {
  */
 
 router.patch("/:name", function (req, res) {
-    let reqName = req.params.name;
+    let reqName = req.params.name; // could also do object destructuring
     let newName = req.body.name;
     let newPrice = req.body.price;
 
